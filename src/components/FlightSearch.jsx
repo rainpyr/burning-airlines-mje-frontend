@@ -48,15 +48,12 @@ class FlightSearch extends React.Component {
 
 
     submitSearch = () => {
-
-       this.function();
-       this.handleInput();
-        console.log('Search submit!');
-
-        console.log(`New router should be: #/procedures/search/${this.state.originQuery}/${this.state.destinationQuery}`);
+        console.log('Search submit!', this.state.originQuery, this.state.destinationQuery);
+        // console.log(`New router should be: #/procedures/search/${this.state.searchQuery}`);
+        console.log(`New router should be: #/search/${this.state.originQuery}/${this.state.destinationQuery}`);
 
         //please now go to the following page:
-        this.props.history.push(`/procedures/search/${this.state.originQuery}/${this.state.destinationQuery}`)
+        this.props.history.push(`/search/${this.state.originQuery}/${this.state.destinationQuery}`)
     }
 
     render(){
@@ -73,7 +70,6 @@ class FlightSearch extends React.Component {
 
 
     }
-
 
 
 } // class FlightSearch
