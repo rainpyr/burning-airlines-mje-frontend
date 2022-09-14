@@ -3,9 +3,9 @@ import Reservations from './Reservations';
 import Users from './Users';
 // import Reservations from './components/Reservations'
 // import Users from './components/Users'
-import { Route, HashRouter as Router, Link } from 'react-router-dom'
 import FlightReservation from './FlightReservation'
-import '../App.css';
+import { Route, HashRouter as Router, Link } from 'react-router-dom'
+
 
 
 class Home extends React.Component {
@@ -20,21 +20,23 @@ class Home extends React.Component {
                 <p>We only run exclusive jets so our seats are little. Not for poor people</p>
                 <hr />
                     <nav>
-                        {/* <Link to='/'>Home</Link>
+                        <Link to='/'>Home</Link>
                         {' '}|{' '}
-                        <Link to='/reservations'>Reservations</Link>
+                        <Link to='/reservations'>Current Reservations</Link>
                         {' '}|{' '}
-                        <Link to='/users'>Users</Link> */}
-                        <Users />
+                        <Link to='/users'>Accounts</Link>
+                        {' '}|{' '}
+                        <Link to='/flightreservations'> Make a Flight Reservations</Link>
+                        {/* <Users />
                         <Reservations />
-
+                        <FlightReservation /> */}
                     </nav>
+
                     <hr />
                 </header>
-                {/* <Route exact path="/users" component={Users} />
-                <Route exact path="/reservations" component={ Reservations }/> */}
-
-               <Route component={FlightReservation} />
+                <Route exact path="/users" component={Users} />
+                <Route exact path="/reservations" component={ Reservations }/>
+                <Route component={FlightReservation} />
 
                 </Router>
             </div>
