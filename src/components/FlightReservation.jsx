@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const RAILS_PLANE_BASE_URL = 'http://localhost:3000/planes/'
+const RAILS_PLANE_BASE_URL = 'http://localhost:3000/plane/json'
 
 class FlightReservation extends React.Component {
 
