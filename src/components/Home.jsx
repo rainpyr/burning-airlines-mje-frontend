@@ -18,7 +18,7 @@ class Home extends React.Component {
             <div className="App">
                 <Router>
                 <header>
-                <h1>WELCOME TO MJE EXCLUSIVE AIRLINES!</h1>
+                <h1>WELCOME TO JEM EXCLUSIVE AIRLINES!</h1>
                 <p>We only run exclusive jets so our seats are little. Not for poor people</p>
                 <hr />
                     <nav>
@@ -28,7 +28,7 @@ class Home extends React.Component {
                         {' '}|{' '}
                         <Link to='/users'>Accounts</Link>
                         {' '}|{' '}
-                        <Link to='/flightreservations'> Make a Flight Reservations</Link>
+                        <Link to='/flightreservation'> Make a Flight Reservations</Link>
                         {' '}|{' '}
                         <Link to='/flightsearch'> Make a Flight Search</Link>
                         {' '}|{' '}
