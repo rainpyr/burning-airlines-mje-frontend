@@ -2,49 +2,31 @@ import React from 'react';
 
 class FlightSearch extends React.Component {
      
-    // App = () =>{
-    //  const [values, setValues] = useState({
-    //  originQuery: "",
-    //  destinationQuery: "" 
-    //     });
-
-    // }
+  
     
     state = {
         originQuery: "",
         destinationQuery: "" 
     };
    
-    const [values, setValues] = useState(initialValues);
+ 
     handleInput = (ev) => {
         const value = ev.target.value;
         setState({
             ...state,
             [ev.target.originQuery]: originQuery,
             [ev.target.destinationQuery]:
-            destinationQuery  
+            destinatdionQuery  
         });
         // console.log(ev.target.value);
 
     };
 
-    // handleDInput = (ev) => {
-    //     this.setState({destinationQuery: ev.target.value});
-    //     console.log(ev.target.value);
-    // };
-    function (){
-        const [values, setValues] = useState(initialValues);
-
-        const handleInput = (e) => {
-            const {name, value} = e.target;
-            setValues({
-                ...values,
-                [name]: value,
-            })
-        };
-
-    }
-   
+    handleDInput = (ev) => {
+        this.setState({destinationQuery: ev.target.value});
+        console.log(ev.target.value);
+    };
+  
 
 
     submitSearch = () => {
@@ -54,7 +36,7 @@ class FlightSearch extends React.Component {
 
         //please now go to the following page:
         this.props.history.push(`/search/${this.state.originQuery}/${this.state.destinationQuery}`)
-    }
+    };
 
     render(){
         
