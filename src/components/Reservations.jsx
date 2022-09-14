@@ -3,17 +3,45 @@ import React from 'react';
 const RAILS_RESERVATIONS_BASE_URL = 'http://localhost:3000/reservations';
 
 
-
-
-
 class Reservations extends React.Component{
+
+    state ={
+        reservations: [],
+        loading: true,
+        error: null
+    }
 
     componentDidMount(){
         // We want to load the Reservations data
-        console.log('componentDidMount')
+        console.log('componentDidMount for reservation()');
+        this.fetchReservations();
+    
+    } // Mount
+
+    fetchReservations = async () => {
+
+        try{
+            const res = await axios.get(RAILS_RESERVATIONS_BASE_URL);
+            console.log('reservations:', res.data)
+
+            this.setState({
+                reservations: res.data,
+                loading: false
+            });
+
+        } // try
+        catch( err ){
+            console.log('Error Loading secrets from API', err);
+
+            this.setState({
+                loading: false,
+                error: err // Store the required information for the render
+            });
+        }
+
+    } // fetch
 
 
-    }
 
     render(){
 
@@ -21,6 +49,11 @@ class Reservations extends React.Component{
 
             <div className="Reservation">
                 <h1>User Reservation Page</h1>
+                <ul>
+                {
+                this.state.reservations.map ( r => <li> {r.flight_id} {r.user_id} {r.seat_number}</li>)
+                }
+                </ul>
             </div>
 
         ) // return
