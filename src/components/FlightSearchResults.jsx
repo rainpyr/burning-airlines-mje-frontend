@@ -3,19 +3,7 @@ import '../App.css';
 import FlightSearch from './FlightSearch';
 import axios from 'axios';
 
-const RAILS_FLIGHTS_BASE_URL = 'http://localhost:3000/flights/json';
-
-// function flightItem (props){
-//     return(
-//         <td>{props.flight.flight}</td>
-//         <td>{props.flight.departure_date}</td>
-//         <td>{props.flight.origin}</td>
-//         <td>{props.flight.destination}</td>
-//         <td>{props.flight.plane_id}</td>
-//         <td>{props.flight.seats}</td>
-//     )
-
-// }
+// const RAILS_FLIGHTS_BASE_URL = 'http://localhost:3000/flights/:destination/json';
 
 class FlightSearchResults extends React.Component {
 
@@ -26,32 +14,23 @@ class FlightSearchResults extends React.Component {
 
     }
 
-    componentDidMount(){
-        console.log('componentDidMount()');
-        this.fetchFlights();
-
-        //Poll the server every 2s to get any secrets that were added by other users since the page loaded (or since the last poll)
-        // setInterval(this.fetchFlights, 2000)
+    
+    getFlightsWithDestination = (destination) => {
+        axios.get( `http://localhost:3000/flights/${destination}/json` )
+        .then( res => {
+            console.log(`resultFlights:`, res.data); 
+            
+        })
+        .catch( err => {
+            
+        })
     }
 
-    fetchFlights = async () => {
-        try{
-            const res = await axios.get(RAILS_FLIGHTS_BASE_URL)
-            console.log('response:', res.data);
-            this.setState({
-                flights: res.data, 
-                loading: false
-            });
-        } catch(err){
-            console.error('Error loading secrects from API', err);
-            this.setState({
-                loading: false,
-                error: err
-            })
-        }//catch
-        
-    } // fetchSecrets()
-
+    
+    componentDidMount(){
+        console.log('componentDidMount()');
+        this.getFlightsWithDestination(this.props.match.params.destination)
+    }
 
     render(){
 

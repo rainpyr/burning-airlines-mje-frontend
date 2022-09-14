@@ -41,8 +41,9 @@ class Home extends React.Component {
                 <Route exact path="/users" component={Users} />
                 <Route exact path="/reservations" component={ Reservations }/>
                 <Route exact path="/flightsearch" component={ FlightSearch }/>
-                <Route exact path="/flightsearchresults" component={ FlightSearchResults }/>
-                <Route component={FlightReservation} />
+                {/* <Route exact path="/flightsearchresults" component={ FlightSearchResults }/> */}
+                <Route exact path="/search/:destination" component={ FlightSearchResults }/>
+                <Route exact path="/flightreservation" component={FlightReservation} />
 
                 </Router>
             </div>
