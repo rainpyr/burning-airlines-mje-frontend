@@ -1,6 +1,8 @@
-import React from 'react'
-import Reservations from './components/Reservations'
-import Users from './components/Users'
+import React from 'react';
+import Reservations from './components/Reservations';
+import Users from './components/Users';
+import FlightSearch from './FlightSearch';
+import FlightSearchResults from './FlightSearchResults';
 
 
 
