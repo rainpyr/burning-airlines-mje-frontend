@@ -3,9 +3,6 @@ import React from 'react';
 const RAILS_RESERVATIONS_BASE_URL = 'http://localhost:3000/reservations';
 
 
-
-
-
 class Reservations extends React.Component{
 
     componentDidMount(){

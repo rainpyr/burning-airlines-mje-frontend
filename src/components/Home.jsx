@@ -1,7 +1,9 @@
 import React from 'react'
-import Reservations from './components/Reservations'
-import Users from './components/Users'
-
+// import Reservations from './components/Reservations'
+// import Users from './components/Users'
+import { Route, HashRouter as Router, Link } from 'react-router-dom'
+import FlightReservation from './FlightReservation'
+import '../App.css';
 
 
 class Home extends React.Component {
@@ -22,7 +24,7 @@ class Home extends React.Component {
                     <hr />
                 </header>
 
-               
+               <Route component={FlightReservation} />
 
                 </Router>
             </div>
