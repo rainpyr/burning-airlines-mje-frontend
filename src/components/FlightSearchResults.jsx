@@ -5,17 +5,17 @@ import axios from 'axios';
 
 const RAILS_FLIGHTS_BASE_URL = 'http://localhost:3000/flights/json';
 
-function flightItem (props){
-    return(
-        <td>{props.flight.flight}</td>
-        <td>{props.flight.departure_date}</td>
-        <td>{props.flight.origin}</td>
-        <td>{props.flight.destination}</td>
-        <td>{props.flight.plane_id}</td>
-        <td>{props.flight.seats}</td>
-    )
+// function flightItem (props){
+//     return(
+//         <td>{props.flight.flight}</td>
+//         <td>{props.flight.departure_date}</td>
+//         <td>{props.flight.origin}</td>
+//         <td>{props.flight.destination}</td>
+//         <td>{props.flight.plane_id}</td>
+//         <td>{props.flight.seats}</td>
+//     )
 
-}
+// }
 
 class FlightSearchResults extends React.Component {
 
@@ -73,9 +73,9 @@ class FlightSearchResults extends React.Component {
                     <th>Plane</th>
                     <th>Remaining Seats</th>
                 </tr>
-                {this.state.flights.map( f =>
-                <FlightItem key={f.id} flight={f} />
-                )}
+                {/* {this.state.flights.map( f =>
+                // <FlightItem key={f.id} flight={f} />
+                )} */}
                 
                 
                 </table>
