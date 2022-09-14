@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const RAILS_FLIGHTS_BASE_URL = 'http://localhost:3000/flights/json';
 
-// function flightItem (props){
+// function FlightItem (props){
 //     return(
 //         <td>{props.flight.flight}</td>
 //         <td>{props.flight.departure_date}</td>
@@ -43,14 +43,14 @@ class FlightSearchResults extends React.Component {
                 loading: false
             });
         } catch(err){
-            console.error('Error loading secrects from API', err);
+            console.error('Error loading flights from API', err);
             this.setState({
                 loading: false,
                 error: err
             })
         }//catch
         
-    } // fetchSecrets()
+    } // fetchFlights()
 
 
     render(){

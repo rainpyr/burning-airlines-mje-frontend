@@ -1,11 +1,14 @@
 import React from 'react';
 
 
+
+
 class FlightSearch extends React.Component {
 
     state = {
         originQuery: '',
         destinationQuery: ''
+        
     };
 
     handleOInput = (ev) => {
@@ -18,11 +21,12 @@ class FlightSearch extends React.Component {
 
     submitSearch = () => {
         console.log('Search submit!');
-        console.log(`New router should be: #/procedures/search/${this.state.searchQuery}`);
+        console.log(`New router should be: #/flights/search/${this.state.originQuery}`);
 
         //please now go to the following page:
-        this.props.history.push(`/procedures/search/${this.state.searchQuery}`)
-    }
+        this.props.history.push(`/flights/search/${this.state.originQuery}/${this.state.destinationQuery}`)
+    };
+
 
     render(){
 
@@ -31,6 +35,25 @@ class FlightSearch extends React.Component {
                 <input type="text" onChange={this.handleOInput} placeholder="Search origin"/>
                 <input type="text" onChange={this.handleDInput} placeholder="Search destination"/>
                 <button onClick={this.submitSearch}>Search</button>
+                <hr />
+                {
+                <table>
+                <tr>
+                    <th>Flight</th>
+                    <th>Date</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Plane</th>
+                    <th>Remaining Seats</th>
+                </tr>
+                {/* {this.state.flights.map( f =>
+                
+                )} */}
+                
+                
+                </table>
+                }
+
             </div>
         )
 
