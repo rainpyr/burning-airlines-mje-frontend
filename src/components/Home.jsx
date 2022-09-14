@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 class Home extends React.Component {
 
     render(){
@@ -14,3 +16,14 @@ class Home extends React.Component {
 }
 
 export default Home
+
+
+
+
+// FORGET USER LOGIN FOR NOW
+// GOAL - MAKE ONE USER DO ONE RESERVATION
+// HARDCODE one USER ID to make a reservation
+// flightSearch & fligthSearchResult components - EVA
+// 'show flights page' & reservations - JUSTIN / MO
+// reservations component - MO
+
