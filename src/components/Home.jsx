@@ -1,9 +1,11 @@
 import React from 'react';
 import Reservations from './Reservations';
 import Users from './Users';
-
-
-// import {Route, HashRouter as Router, Link} from 'react-router-dom';
+// import Reservations from './components/Reservations'
+// import Users from './components/Users'
+import { Route, HashRouter as Router, Link } from 'react-router-dom'
+import FlightReservation from './FlightReservation'
+import '../App.css';
 
 
 class Home extends React.Component {
@@ -32,7 +34,7 @@ class Home extends React.Component {
                 {/* <Route exact path="/users" component={Users} />
                 <Route exact path="/reservations" component={ Reservations }/> */}
 
-               
+               <Route component={FlightReservation} />
 
                 {/* </Router> */}
             </div>
@@ -40,4 +42,15 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default Home
+
+
+
+
+// FORGET USER LOGIN FOR NOW
+// GOAL - MAKE ONE USER DO ONE RESERVATION
+// HARDCODE one USER ID to make a reservation
+// flightSearch & fligthSearchResult components - EVA
+// 'show flights page' & reservations - JUSTIN / MO
+// reservations component - MO
+
