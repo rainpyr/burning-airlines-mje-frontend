@@ -14,7 +14,7 @@ class Home extends React.Component {
 
         return (
             <div className="App">
-                {/* <Router> */}
+                <Router>
                 <header>
                 <h1>WELCOME TO MJE EXCLUSIVE AIRLINES!</h1>
                 <p>We only run exclusive jets so our seats are little. Not for poor people</p>
@@ -36,7 +36,7 @@ class Home extends React.Component {
 
                <Route component={FlightReservation} />
 
-                {/* </Router> */}
+                </Router>
             </div>
         )
     }
