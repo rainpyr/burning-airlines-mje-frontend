@@ -42,7 +42,7 @@ class Home extends React.Component {
                 <Route exact path="/reservations" component={ Reservations }/>
                 <Route exact path="/flightsearch" component={ FlightSearch }/>
                 {/* <Route exact path="/flightsearchresults" component={ FlightSearchResults }/> */}
-                <Route exact path="/search/:destination" component={ FlightSearchResults }/>
+                <Route exact path="/search/:origin/:destination" component={ FlightSearchResults }/>
                 <Route exact path="/flightreservation" component={FlightReservation} />
 
                 </Router>

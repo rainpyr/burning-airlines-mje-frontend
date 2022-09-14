@@ -11,25 +11,24 @@ class FlightSearchResults extends React.Component {
         flights: [], // storesresults from API for render
         loading: true, // whether os not it's loading
         error: null
-
     }
 
     
-    getFlightsWithDestination = (destination) => {
-        axios.get( `http://localhost:3000/flights/${destination}/json` )
+    getFlightsWithDestination = (origin, destination) => {
+        axios.get( `http://localhost:3000/flights/${origin}/${destination}` )
         .then( res => {
             console.log(`resultFlights:`, res.data); 
+            this.setState({flights: res.data})
             
         })
         .catch( err => {
             
         })
     }
-
     
     componentDidMount(){
         console.log('componentDidMount()');
-        this.getFlightsWithDestination(this.props.match.params.destination)
+        this.getFlightsWithDestination(this.props.match.params.origin ,this.props.match.params.destination)
     }
 
     render(){
@@ -58,6 +57,9 @@ class FlightSearchResults extends React.Component {
                 
                 
                 </table>
+                }
+                {
+                    this.state.flights.map( f => <p>Flight Number: {f.flight}, Flight Destination: {f.destination}</p>)
                 }
 
             </div>
