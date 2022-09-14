@@ -43,7 +43,8 @@ class Home extends React.Component {
                 <Route exact path="/flightsearch" component={ FlightSearch }/>
                 <Route exact path="/flightsearchresults" component={ FlightSearchResults }/>
                 <Route component={FlightReservation} />
-
+                <br />
+                <FlightSearch />
                 </Router>
             </div>
         )
