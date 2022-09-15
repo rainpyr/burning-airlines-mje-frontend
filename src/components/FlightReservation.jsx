@@ -4,7 +4,7 @@ import '../Seats.css';
 
 function Seats( props ){
     return (
-        <div className="Seats">{props.id}</div>
+        <div className="Seats" id={props.id} onClick={props.helloClick} style={props.bgColor}>{props.id}</div>
     )
 }
 
@@ -12,12 +12,15 @@ class FlightReservation extends React.Component {
 
     state = { 
         flightNum: '',
+        flightId: null,
         departFrom: '',
         arriveAt: '',
         planeName: '',
         planeRowsArray: [],
         planeColsArray: [],
-        seatsNum: '',
+        seatNum: '',
+        userName: 'Anna',
+        bgColor: '',
     }
     
     arrayRow = (num) => {
@@ -41,6 +44,7 @@ class FlightReservation extends React.Component {
             console.log(res.data.plane.rows);
             console.log(res.data.plane.cols);
             this.setState({flightNum: res.data.flight})
+            this.setState({flightId: res.data.id})
             this.setState({departFrom: res.data.origin})
             this.setState({arriveAt: res.data.destination})
             this.setState({planeName: res.data.plane.name})
@@ -53,12 +57,18 @@ class FlightReservation extends React.Component {
         })
     }
 
+    postReservation = (flightId, username, seatNum) {
+
+    }
+
     componentDidMount(){
         this.getSeatingDiagram(this.props.match.params.id)
     }
 
-    handleClick = () => {
-        console.log(`seats clicked!`);
+    handleClick = (id) => {
+        console.log(`seats clicked!`, id, this.state.userName, this.state.flightId);
+        this.setState({seatNum: id})
+        this.setState({bgColor: "red"})
     }
     
 
@@ -71,8 +81,8 @@ class FlightReservation extends React.Component {
                 <p>Departure: {this.state.departFrom}</p>
                 <p>Arrival: {this.state.arriveAt}</p>
                 <p>Plane Name: {this.state.planeName}</p>
-                {console.log(this.state.planeRowsArray)}
-                {console.log(this.state.planeColsArray)}
+                {/* {console.log(this.state.planeRowsArray)}
+                {console.log(this.state.planeColsArray)} */}
 
                 <div className="SeatsBox">
                     {
@@ -81,7 +91,7 @@ class FlightReservation extends React.Component {
                             <div className="SeatsGrid">
                             {this.state.planeRowsArray.map( (row) => (
                                 // <div className="Seats" id={`${col}${row}`}>{col}{row}</div>
-                                <Seats id={`${col}${row}`} onClick={() => this.handleClick}/>
+                                <Seats id={`${col}${row}`} helloClick={() => this.handleClick(`${col}${row}`) } />
                             ))}
                             </div>
                         ))

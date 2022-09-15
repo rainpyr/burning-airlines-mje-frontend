@@ -76,7 +76,7 @@ class FlightSearchResults extends React.Component {
             
             </table>
             }
-            <Route exact path="/flight/:id" component={ FlightReservation }/>
+            <Route exact path="/flights/:id" component={ FlightReservation }/>
             
             </Router>
             </div>
