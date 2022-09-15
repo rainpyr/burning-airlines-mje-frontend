@@ -19,7 +19,7 @@ class FlightReservation extends React.Component {
         planeRowsArray: [],
         planeColsArray: [],
         seatNum: '',
-        userName: 'Anna',
+        userId: 28,
         bgColor: '',
     }
     
@@ -57,16 +57,16 @@ class FlightReservation extends React.Component {
         })
     }
 
-    postReservation = (flightId, username, seatNum) {
+    // postReservation = (flightId, username, seatNum) {
 
-    }
+    // }
 
     componentDidMount(){
         this.getSeatingDiagram(this.props.match.params.id)
     }
 
     handleClick = (id) => {
-        console.log(`seats clicked!`, id, this.state.userName, this.state.flightId);
+        console.log(`seats clicked! seatNum: ${id} userId: ${this.state.userId} flightId: ${this.state.flightId}`);
         this.setState({seatNum: id})
         this.setState({bgColor: "red"})
     }
