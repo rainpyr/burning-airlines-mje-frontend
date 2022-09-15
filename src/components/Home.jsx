@@ -28,11 +28,7 @@ class Home extends React.Component {
                         {' '}|{' '}
                         <Link to='/users'>Accounts</Link>
                         {' '}|{' '}
-                        <Link to='/flightreservation'> Make a Flight Reservations</Link>
-                        {' '}|{' '}
                         <Link to='/flightsearch'> Make a Flight Search</Link>
-                        {' '}|{' '}
-                        <Link to='/flightsearchresults'> Search Results</Link>
                         
                     </nav>
 
@@ -43,7 +39,7 @@ class Home extends React.Component {
                 <Route exact path="/flightsearch" component={ FlightSearch }/>
                 {/* <Route exact path="/flightsearchresults" component={ FlightSearchResults }/> */}
                 <Route exact path="/search/:origin/:destination" component={ FlightSearchResults }/>
-                <Route exact path="/flightreservation" component={FlightReservation} />
+                <Route exact path="/flights/:id" component={FlightReservation} />
 
                 </Router>
             </div>

@@ -53,6 +53,8 @@ class FlightSearchResults extends React.Component {
                     <th>Plane</th>
                     <th>Remaining Seats</th>
                 </tr>
+
+        
                  
                 <Link to='/flightreservations'> 
                     {this.state.flights.map( f => 

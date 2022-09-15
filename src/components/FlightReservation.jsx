@@ -1,6 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import '../Seats.css'
+import '../Seats.css';
+
+function Seats( props ){
+    return (
+        <div className="Seats">{props.id}</div>
+    )
+}
 
 class FlightReservation extends React.Component {
 
@@ -11,6 +17,7 @@ class FlightReservation extends React.Component {
         planeName: '',
         planeRowsArray: [],
         planeColsArray: [],
+        seatsNum: '',
     }
     
     arrayRow = (num) => {
@@ -47,7 +54,11 @@ class FlightReservation extends React.Component {
     }
 
     componentDidMount(){
-        this.getSeatingDiagram(27)
+        this.getSeatingDiagram(this.props.match.params.id)
+    }
+
+    handleClick = () => {
+        console.log(`seats clicked!`);
     }
     
 
@@ -69,8 +80,8 @@ class FlightReservation extends React.Component {
                             
                             <div className="SeatsGrid">
                             {this.state.planeRowsArray.map( (row) => (
-                                <div className="Seats" id={`${col}${row}`}>{col}{row}</div>
-
+                                // <div className="Seats" id={`${col}${row}`}>{col}{row}</div>
+                                <Seats id={`${col}${row}`} onClick={() => this.handleClick}/>
                             ))}
                             </div>
                         ))
