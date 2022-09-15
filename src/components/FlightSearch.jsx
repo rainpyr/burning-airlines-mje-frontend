@@ -37,21 +37,19 @@ class FlightSearch extends React.Component {
                 <button onClick={this.submitSearch}>Search</button>
                 <hr />
                 {
-                <table>
-                <tr>
-                    <th>Flight</th>
-                    <th>Date</th>
-                    <th>Origin</th>
-                    <th>Destination</th>
-                    <th>Plane</th>
-                    <th>Remaining Seats</th>
-                </tr>
-                {/* {this.state.flights.map( f =>
-                
-                )} */}
+                // <table>
+                // <tr>
+                //     <th>Flight</th>
+                //     <th>Date</th>
+                //     <th>Origin</th>
+                //     <th>Destination</th>
+                //     <th>Plane</th>
+                //     <th>Remaining Seats</th>
+                // </tr>
                 
                 
-                </table>
+                
+                // </table>
                 }
 
             </div>

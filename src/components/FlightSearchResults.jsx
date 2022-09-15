@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import FlightSearch from './FlightSearch';
+import FlightReservation from './FlightReservation';
 import axios from 'axios';
 import { Route, HashRouter as Router, Link } from 'react-router-dom'
 
@@ -32,6 +32,10 @@ class FlightSearchResults extends React.Component {
         this.getFlightsWithDestination(this.props.match.params.origin ,this.props.match.params.destination)
     }
 
+    // clickLink() => {
+    //     console.log('link clicked')
+    // }
+
     render(){
 
         if(this.state.error !== null){
@@ -40,7 +44,7 @@ class FlightSearchResults extends React.Component {
 
         return (
             <div>
-
+            <Router>
                 <h3>Your Search Results</h3>
 
                 {
@@ -54,10 +58,10 @@ class FlightSearchResults extends React.Component {
                     <th>Remaining Seats</th>
                 </tr>
                  
-                <Link to='/flightreservations'> 
+                
                     {this.state.flights.map( f => 
                    <tr> 
-                    <td> {f.flight} </td>
+                    <td> <Link to={`/flights/${f.id}`}>{f.flight}</Link></td>
                     <td>{f.departure_date}</td>
                     <td>{f.origin}</td>
                     <td>{f.destination}</td>
@@ -65,11 +69,14 @@ class FlightSearchResults extends React.Component {
                     <td>{f.seats}</td>
                     </tr>
                     )}
-                </Link>
+                
                  
             
             </table>
             }
+            <Route exact path="/flight/:id" component={ FlightReservation }/>
+            
+            </Router>
             </div>
 
         )

@@ -47,7 +47,8 @@ class FlightReservation extends React.Component {
     }
 
     componentDidMount(){
-        this.getSeatingDiagram(27)
+        this.getSeatingDiagram(57)
+        
     }
     
 
