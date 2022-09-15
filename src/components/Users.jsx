@@ -1,15 +1,26 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import UserSearch from './UserSearch';
 const RAILS_USERS_BASE_URL = 'http://localhost:3000/users'
 
+// const PropsPage = () =>{
+//     return(
+//         <h2>{title}</h2>
+//     )
+// }
 
 class Users extends React.Component{
 
+    // [bro] = useState();
     state ={
+        searchText: '', // this needs to be defined in the parent (Home.js) and passed down as a prop.
         users: [],
         loading: true,
         error: null
     }
+
+ 
 
     componentDidMount(){
         // We want to load the Users data
@@ -41,19 +52,55 @@ class Users extends React.Component{
 
     } // fetch
 
+    handleInput = (event) =>{
+        this.setState({ searchText: event.target.value})
+        // this.setState(event.target.value)
+    }
 
+    submitSearch = (event) => {
+        event.preventDefault();
+        const currentUser = this.state.searchText;
+        this.setState({ currentUser: currentUser });
+        // this.props.checkUser
+        console.log(currentUser);
+        this.props.notifyParent(this.state.searchText);
+        this.props.history.push("/flightsearch");
+
+
+        // this.props.renderUser(currentUser);
+
+    }
 
     render(){
 
-        return (
+        console.log('this is props:', this.props);
+      
 
+        return (
+            
+          
             <div className="Users">
-                <h1>User Index Page</h1>
+
+
+                <div className="Search">
+                    <div>
+                        {/* <p><UserSearch text={this.state.searchText} /></p> */}
+
+                    </div>
+                   
+                    <h3>Select User</h3>
+                     <input type="text" onChange={this.handleInput} placeholder="Search User"/> <button onClick={this.submitSearch}>Submit </button> 
+                     {/* <h2>{this.state.searchText}</h2> */}
+
+                </div>
+                {/* <div className="All-users">
+                <h3>All User Accounts</h3>
                 <ul>
                 {
-                    this.state.users.map( u => <li>{u.name}</li>)
+                this.state.users.map( u => <li>{u.name}</li>)
                 }
                 </ul>
+                </div> */}
             </div>
 
       
