@@ -48,7 +48,8 @@ class FlightSearchResults extends React.Component {
                 <h3>Your Search Results</h3>
 
                 {
-                <table>
+                <div class="searchresult-container">
+                <table id="flights">
                 <tr>
                     <th>Flight</th>
                     <th>Date</th>
@@ -57,24 +58,22 @@ class FlightSearchResults extends React.Component {
                     <th>Plane</th>
                     <th>Remaining Seats</th>
                 </tr>
-
-        
-                 
-                
+                        
                     {this.state.flights.map( f => 
-                   <tr> 
+                <tr> 
                     <td> <Link to={`/flights/${f.id}`}>{f.flight}</Link></td>
                     <td>{f.departure_date}</td>
                     <td>{f.origin}</td>
                     <td>{f.destination}</td>
-                    <td>{f.plane_id}</td>
+                    <td>{f.plane.name}</td>
                     <td>{f.seats}</td>
-                    </tr>
+                </tr>
                     )}
                 
                  
             
             </table>
+            </div>
             }
             <Route exact path="/flight/:id" component={ FlightReservation }/>
             
