@@ -67,20 +67,20 @@ class Home extends React.Component {
                 {/* <UserSearch notifyParent={this.checkUser}/> */}
                 <p> Welcome user: {this.state.searchText}</p>
                 <Users notifyParent={this.checkUser} />
-                <hr />
+                <br />
                     <nav>
                         <Link to='/'>Home</Link>
                         {' '}|{' '}
                         <Link to='/reservations'>Current Reservations</Link>
                         {' '}|{' '}
-                        <Link to='/users'>Accounts</Link>
-                        {' '}|{' '}
+                        {/* <Link to='/users'>Accounts</Link>
+                        {' '}|{' '} */}
                         <Link to='/flightsearch'> Make a Flight Search</Link>
                         
                     </nav>
 
 
-                    <hr />
+                <hr />
                 </header>
                 {/* <Route exact path="/props-through-component" component={() => <Users title={searchText} />} /> */}
                 {/* <Route exact path="/users" component={Users } />  */}

@@ -64,6 +64,9 @@ class Users extends React.Component{
         // this.props.checkUser
         console.log(currentUser);
         this.props.notifyParent(this.state.searchText);
+        this.props.history.push("/flightsearch");
+
+
         // this.props.renderUser(currentUser);
 
     }
@@ -87,7 +90,7 @@ class Users extends React.Component{
                    
                     <h3>Select User</h3>
                      <input type="text" onChange={this.handleInput} placeholder="Search User"/> <button onClick={this.submitSearch}>Submit </button> 
-                     <h2>{this.state.searchText}</h2>
+                     {/* <h2>{this.state.searchText}</h2> */}
 
                 </div>
                 {/* <div className="All-users">
