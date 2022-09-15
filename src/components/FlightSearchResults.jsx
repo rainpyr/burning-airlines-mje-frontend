@@ -57,6 +57,8 @@ class FlightSearchResults extends React.Component {
                     <th>Plane</th>
                     <th>Remaining Seats</th>
                 </tr>
+
+        
                  
                 
                     {this.state.flights.map( f => 

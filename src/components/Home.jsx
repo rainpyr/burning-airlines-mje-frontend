@@ -28,11 +28,7 @@ class Home extends React.Component {
                         {' '}|{' '}
                         <Link to='/users'>Accounts</Link>
                         {' '}|{' '}
-                        <Link to='/flightreservation'> Make a Flight Reservations</Link>
-                        {' '}|{' '}
                         <Link to='/flightsearch'> Make a Flight Search</Link>
-                        {' '}|{' '}
-                        <Link to='/flightsearchresults'> Search Results</Link>
                         
                     </nav>
 
