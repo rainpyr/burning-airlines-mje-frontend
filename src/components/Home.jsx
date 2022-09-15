@@ -62,7 +62,7 @@ class Home extends React.Component {
             <div className="App">
                 <Router>
                 <header>
-                <h1>WELCOME TO MJE EXCLUSIVE AIRLINES!</h1>
+                <h1>WELCOME TO JEM EXCLUSIVE AIRLINES!</h1>
                 <p>We only run exclusive jets so our seats are little. Not for poor people</p>
                 {/* <UserSearch notifyParent={this.checkUser}/> */}
                 <p> Welcome user: {this.state.searchText}</p>
@@ -75,11 +75,7 @@ class Home extends React.Component {
                         {' '}|{' '}
                         <Link to='/users'>Accounts</Link>
                         {' '}|{' '}
-                        <Link to='/flightreservations'> Make a Flight Reservations</Link>
-                        {' '}|{' '}
                         <Link to='/flightsearch'> Make a Flight Search</Link>
-                        {' '}|{' '}
-                        <Link to='/flightsearchresults'> Search Results</Link>
                         
                     </nav>
 
@@ -92,7 +88,8 @@ class Home extends React.Component {
                 <Route exact path="/flightsearch" component={ FlightSearch }/>
                 {/* <Route exact path="/flightsearchresults" component={ FlightSearchResults }/> */}
                 <Route exact path="/search/:origin/:destination" component={ FlightSearchResults }/>
-                <Route exact path="/flightreservation" component={FlightReservation} />
+                <Route exact path="/flights/:id" component={FlightReservation} />
+                
 
                 </Router>
             </div>

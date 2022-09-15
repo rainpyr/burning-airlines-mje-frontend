@@ -1,7 +1,8 @@
 import React from 'react';
 import '../App.css';
-import FlightSearch from './FlightSearch';
+import FlightReservation from './FlightReservation';
 import axios from 'axios';
+import { Route, HashRouter as Router, Link } from 'react-router-dom'
 
 // const RAILS_FLIGHTS_BASE_URL = 'http://localhost:3000/flights/:destination/json';
 
@@ -21,7 +22,7 @@ class FlightSearchResults extends React.Component {
             this.setState({flights: res.data})
             
         })
-        .catch( err => {
+        .catch( err => {console.error('Loading error: ', err)
             
         })
     }
@@ -31,6 +32,10 @@ class FlightSearchResults extends React.Component {
         this.getFlightsWithDestination(this.props.match.params.origin ,this.props.match.params.destination)
     }
 
+    // clickLink() => {
+    //     console.log('link clicked')
+    // }
+
     render(){
 
         if(this.state.error !== null){
@@ -38,11 +43,13 @@ class FlightSearchResults extends React.Component {
         }
 
         return (
-            <div className="">
+            <div>
+            <Router>
                 <h3>Your Search Results</h3>
 
                 {
-                <table>
+                <div class="searchresult-container">
+                <table id="flights">
                 <tr>
                     <th>Flight</th>
                     <th>Date</th>
@@ -51,17 +58,26 @@ class FlightSearchResults extends React.Component {
                     <th>Plane</th>
                     <th>Remaining Seats</th>
                 </tr>
-                {/* {this.state.flights.map( f =>
-                // <FlightItem key={f.id} flight={f} />
-                )} */}
+                        
+                    {this.state.flights.map( f => 
+                <tr> 
+                    <td> <Link to={`/flights/${f.id}`}>{f.flight}</Link></td>
+                    <td>{f.departure_date}</td>
+                    <td>{f.origin}</td>
+                    <td>{f.destination}</td>
+                    <td>{f.plane.name}</td>
+                    <td>{f.seats}</td>
+                </tr>
+                    )}
                 
-                
-                </table>
-                }
-                {
-                    this.state.flights.map( f => <p>Flight Number: {f.flight}, Flight Destination: {f.destination}</p>)
-                }
-
+                 
+            
+            </table>
+            </div>
+            }
+            <Route exact path="/flight/:id" component={ FlightReservation }/>
+            
+            </Router>
             </div>
 
         )
