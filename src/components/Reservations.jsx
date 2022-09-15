@@ -51,7 +51,7 @@ class Reservations extends React.Component{
                 <h1>User Reservation Page</h1>
                 <ul>
                 {
-                this.state.reservations.map ( r => <li> {r.flight_id} {r.user_id} {r.seat_number}</li>)
+                this.state.reservations.map ( r => <li>Flight Id: {r.flight_id} <br /> User Id:{r.user_id} <br /> Seat #: {r.seat_number}</li>)
                 }
                 </ul>
             </div>
